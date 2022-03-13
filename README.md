@@ -25,7 +25,7 @@ The main purpose of this network is to expose a load-balanced and monitored inst
 
 Load balancing ensures that the application will be highly available, in addition to restricting access to the network.
 
-- _TODO: What aspect of security do load balancers protect? What is the advantage of a jump box?_
+- Load Balancers smartly distribute network traffic to make sure that no one server is overwhelmed. A Jumpbox allows you to quikly configure other machines from a single point.
 
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the logs and system metrics.
@@ -72,7 +72,7 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
+![](Images/Docker_PS.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
