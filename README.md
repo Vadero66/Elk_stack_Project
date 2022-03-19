@@ -29,8 +29,8 @@ Load balancing ensures that the application will be highly available, in additio
 
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the logs and system metrics.
-- _TODO: What does Filebeat watch for?_
-- _TODO: What does Metricbeat record?_
+- Filebeat checks for changes in files and logs.
+- Metricbeat checks for changes in system metrics.
 
 The configuration details of each machine may be found below.
 
@@ -67,13 +67,13 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 - Saves time and prevents human error during the configuration process. 
 
 The playbook implements the following tasks:
-- first task was to resize the virtual memory.
+- First task was to resize the virtual memory.
 - Second task Installs Docker by using the APT module to install Docker.io
 - Third task installs PIP using APT.
 - Fourth task installs python3 using PIP
 - Fifth task downloads and launches the ELK Container.
 - Sixth task enables docker services.
-- seventh task starts docker services with systemd
+- Seventh task starts docker services with systemd
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
@@ -87,19 +87,18 @@ We have installed the following Beats on these machines:
 - We installed metrticbeat and filebeat on these machines.
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+- Metricbeat moniotors system metrics. Filebeat collects information from logs and files.
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
-- Update the _____ file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
+- Copy the playbook.yml file to etc/ansible Directory.
+- Update the hosts file to include the IP addresses of the machines you want the playbook to run on. 
+- Run the playbook, and navigate to the virtual macine thast the playbook was run on to check that the installation worked as expected.
 
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running?
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+- install-elk.yml is the file. We copy it to the etc/ansaible directory.
+- The host file is updated to provide the specific IP addresses for each machine. By listing the IP addresses in the correct groups inside the hosts file. 
+- http://ELK.VM.PUB.IP:5601/app/kibana is the website you go to in order to check that the beats are running. 
+
